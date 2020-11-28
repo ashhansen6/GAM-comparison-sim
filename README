@@ -1,4 +1,4 @@
-# Stepwise Model Selection for General Additive Models
+# Enhanced Stepwise Model Selection for General Additive Models
 
 The goal of this project is to develop a stepwise system for building general additive models (GAMs). Currently, the direction this function will build the model is forward. In the future, backward selection may be added. Like forward selection for a linear model, this function will build a model starting from a single variable and test, according to some measure of error, whether or not an addition to the model should be made. However, unlike stepwise selection, the function must incorporate elements that put the "generalized" in "generalized additive model" and test if improvements can be made using different non-linear functions.
 
@@ -16,6 +16,8 @@ The function must fulfill these parameters to be considered usable:
     + Local Regression
 * The function must be able to output the model
 * The function must be able to output the model's cross-validation error
+
+As of right now, "stepGam()" from the package 'gam' is likely to be incorporated into the function. The function "stepGam()" performs stepwise selection for GAMs, but it does not decide what type of functions are applied to the predictors.
     
 # Data Parameters
 
