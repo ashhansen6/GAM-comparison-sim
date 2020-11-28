@@ -1,0 +1,25 @@
+# Stepwise Model Selection for General Additive Models
+
+The goal of this project is to develop a stepwise system for building general additive models (GAMs). Currently, the direction this function will build the model is forward. In the future, backward selection may be added. Like forward selection for a linear model, this function will build a model starting from a single variable and test, according to some measure of error, whether or not an addition to the model should be made. However, unlike stepwise selection, the function must incorporate elements that put the "generalized" in "generalized additive model" and test if improvements can be made using different non-linear functions.
+
+# Function parameters
+
+The function must fulfill these parameters to be considered usable:
+
+* The function can accept a formula, or at least a response and set of predictors, and a data frame
+* The function can internally perform k-folds cross validation
+* The function can test and select the best predictor from a list of predictors that is indeterminate at the time the function has been completed
+* The function can apply and test a variety of non-linear functions, including but not exclusively:
+    + Polynomials
+    + Natural Splines
+    + Smoothing Splines
+    + Local Regression
+* The function must be able to output the model
+* The function must be able to output the model's cross-validation error
+    
+# Data Parameters
+
+The data must be randomly generated and have enough noise to cause the function to select several variables and attempt different functions. There should be at least ten predictors, and the predicted variable must be built using a complex mathematical function that does use all of the predicted variables.
+
+# Contributors
+Ashton Hansen
