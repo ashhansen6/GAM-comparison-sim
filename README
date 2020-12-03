@@ -1,6 +1,6 @@
 # General Additive Model Relative Accuracy Simulation
 
-The goal of this project is to determine the relative accuracy of using General Additive Models (GAMs) to model response variables. These GAMs will be compared to LASSO models (and potentially other models), and they will be compared on the basis of test error.
+The goal of this project is to determine the relative accuracy of using General Additive Models (GAMs) to model response variables. These GAMs will be compared to LASSO models (and potentially other models), and they will be compared on the basis of test error (measured in MSE).
 
 The responses that will be modeled will vary in complexity. The first response variable was created through the addition and subtraction of a few selected predictors and has a linear relationship with these selected predictors. The second response variable is slightly more complex, involving quadratic terms. The third response variable is a function of a complex combination of selected predictors.
 
