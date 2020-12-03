@@ -1,27 +1,8 @@
-# Enhanced Stepwise Model Selection for General Additive Models
+# General Additive Model Relative Accuracy Simulation
 
-The goal of this project is to develop a stepwise system for building general additive models (GAMs). Currently, the direction this function will build the model is forward. In the future, backward selection may be added. Like forward selection for a linear model, this function will build a model starting from a single variable and test, according to some measure of error, whether or not an addition to the model should be made. However, unlike stepwise selection, the function must incorporate elements that put the "generalized" in "generalized additive model" and test if improvements can be made using different non-linear functions.
+The goal of this project is to determine the relative accuracy of using General Additive Models (GAMs) to model response variables. These GAMs will be compared to LASSO models (and potentially other models), and they will be compared on the basis of test error.
 
-# Function parameters
-
-The function must fulfill these parameters to be considered usable:
-
-* The function can accept a formula, or at least a response and set of predictors, and a data frame
-* The function can internally perform k-folds cross validation
-* The function can test and select the best predictor from a list of predictors that is indeterminate at the time the function has been completed
-* The function can apply and test a variety of non-linear functions, including but not exclusively:
-    + Polynomials
-    + Natural Splines
-    + Smoothing Splines
-    + Local Regression
-* The function must be able to output the model
-* The function must be able to output the model's cross-validation error
-
-As of right now, "stepGam()" from the package 'gam' is likely to be incorporated into the function. The function "stepGam()" performs stepwise selection for GAMs, but it does not decide what type of functions are applied to the predictors.
-    
-# Data Parameters
-
-The data must be randomly generated and have enough noise to cause the function to select several variables and attempt different functions. There should be at least ten predictors, and the predicted variable must be built using a complex mathematical function that does use all of the predicted variables.
+The responses that will be modeled will vary in complexity. The first response variable was created through the addition and subtraction of a few selected predictors and has a linear relationship with these selected predictors. The second response variable is slightly more complex, involving quadratic terms. The third response variable is a function of a complex combination of selected predictors.
 
 # Contributors
 Ashton Hansen
