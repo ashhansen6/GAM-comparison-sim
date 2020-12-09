@@ -1,0 +1,139 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Packages used:
+```{r}
+library(tidyverse)
+```
+
+# Plots (Y1)
+```{r}
+ggplot(data= df) +
+  geom_point(aes(x= x1, y= y1)) +
+  geom_smooth(aes(x= x1, y= y1))
+
+ggplot(data= df) +
+  geom_point(aes(x= x2, y= y1)) +
+  geom_smooth(aes(x= x2, y= y1))
+
+ggplot(data= df) +
+  geom_point(aes(x= x3, y= y1)) +
+  geom_smooth(aes(x= x3, y= y1))
+
+ggplot(data= df) +
+  geom_point(aes(x= x4, y= y1)) +
+  geom_smooth(aes(x= x4, y= y1)) 
+
+ggplot(df) +
+  geom_point(aes(x= x5, y= y1)) +
+  geom_smooth(aes(x= x5, y= y1)) 
+
+ggplot(df) +
+  geom_point(aes(x= x6, y= y1)) +
+  geom_smooth(aes(x= x6, y= y1))
+
+ggplot(data= df) +
+  geom_point(aes(x= x7, y= y1)) +
+  geom_smooth(aes(x= x7, y= y1))
+
+ggplot(data= df) +
+  geom_point(aes(x= x8, y= y1)) +
+  geom_smooth(aes(x= x8, y= y1))
+
+ggplot(data= df) +
+  geom_point(aes(x= x9, y= y1)) +
+  geom_smooth(aes(x= x9, y= y1))
+
+ggplot(data= df) +
+  geom_point(aes(x= x10, y= y1)) +
+  geom_smooth(aes(x= x10, y= y1))
+```
+
+# Plots (Y2)
+```{r}
+ggplot(data= df) +
+  geom_point(aes(x= x1, y= y2)) +
+  geom_smooth(aes(x= x1, y= y2))
+
+ggplot(data= df) +
+  geom_point(aes(x= x2, y= y2)) +
+  geom_smooth(aes(x= x2, y= y2))
+
+ggplot(data= df) +
+  geom_point(aes(x= x3, y= y2)) +
+  geom_smooth(aes(x= x3, y= y2))
+
+ggplot(data= df) +
+  geom_point(aes(x= x4, y= y2)) +
+  geom_smooth(aes(x= x4, y= y2)) 
+
+ggplot(df) +
+  geom_point(aes(x= x5, y= y2)) +
+  geom_smooth(aes(x= x5, y= y2)) 
+
+ggplot(df) +
+  geom_point(aes(x= x6, y= y2)) +
+  geom_smooth(aes(x= x6, y= y2))
+
+ggplot(data= df) +
+  geom_point(aes(x= x7, y= y2)) +
+  geom_smooth(aes(x= x7, y= y2))
+
+ggplot(data= df) +
+  geom_point(aes(x= x8, y= y2)) +
+  geom_smooth(aes(x= x8, y= y2))
+
+ggplot(data= df) +
+  geom_point(aes(x= x9, y= y2)) +
+  geom_smooth(aes(x= x9, y= y2))
+
+ggplot(data= df) +
+  geom_point(aes(x= x10, y= y2)) +
+  geom_smooth(aes(x= x10, y= y2))
+```
+
+# Plots (Y3)
+```{r}
+ggplot(data= df) +
+  geom_point(aes(x= x1, y= y3)) +
+  geom_smooth(aes(x= x1, y= y3))
+
+ggplot(data= df) +
+  geom_point(aes(x= x2, y= y3)) +
+  geom_smooth(aes(x= x2, y= y3))
+
+ggplot(data= df) +
+  geom_point(aes(x= x3, y= y3)) +
+  geom_smooth(aes(x= x3, y= y3))
+
+ggplot(data= df) +
+  geom_point(aes(x= x4, y= y3)) +
+  geom_smooth(aes(x= x4, y= y3)) 
+
+ggplot(df) +
+  geom_point(aes(x= x5, y= y3)) +
+  geom_smooth(aes(x= x5, y= y3)) 
+
+ggplot(df) +
+  geom_point(aes(x= x6, y= y3)) +
+  geom_smooth(aes(x= x6, y= y3))
+
+ggplot(data= df) +
+  geom_point(aes(x= x7, y= y3)) +
+  geom_smooth(aes(x= x7, y= y3))
+
+ggplot(data= df) +
+  geom_point(aes(x= x8, y= y3)) +
+  geom_smooth(aes(x= x8, y= y3))
+
+ggplot(data= df) +
+  geom_point(aes(x= x9, y= y3)) +
+  geom_smooth(aes(x= x9, y= y3))
+
+ggplot(data= df) +
+  geom_point(aes(x= x10, y= y3)) +
+  geom_smooth(aes(x= x10, y= y3))
+```
+
