@@ -1,11 +1,49 @@
 ---
 title: "R Notebook"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 
 # Packages used:
 ```{r}
 library(tidyverse)
+```
+
+```{r}
+# Packages used:
+library(tidyverse)
+
+# Seed
+set.seed(1456)
+
+# Predictor Variables
+x1 <- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+x2 <- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+x3 <- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+x4 <- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+x5 <- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+x6 <- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+x7 <- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+x8 <- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+x9 <- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+x10 <- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+
+# Predicted Variables
+y1 <- x1 + x2 + x6 + x7 - x5 - x8
+
+y2 <- x1^2 + 0.5*x5^2 + 2*x6^2 - 1.5*x9^2 - 2*x10^2
+
+y3 <- (0.5*x1^3 - 0.25*x1^2 + .2*x1 - 1.5*x2^3 + 1.2*x2^2 - 1.5*x2 + x7^3 - x7^2 + 0.35*x7 + 15)
+
+
+# Data Frame
+df <- data.frame(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, y1, y2, y3)
+df <- df %>% mutate(id = row_number())
+
+# Test and Training Sets
+train <- sample_n(df, 800)
+test <- anti_join(df, train, by = 'id')
 ```
 
 # Plots (Y1)

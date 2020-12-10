@@ -1797,92 +1797,59 @@ summary {
 
 
 <!-- rnb-text-begin -->
-<div id="packages-used" class="section level1">
-<h1>Packages used:</h1>
+<div id="run-this" class="section level1">
+<h1>Run this:</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KGdsbW5ldClcbmBgYCJ9 -->
-<pre class="r"><code>library(tidyverse)
-library(glmnet)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBQYWNrYWdlcyB1c2VkOlxubGlicmFyeSh0aWR5dmVyc2UpXG5cbiMgU2VlZFxuc2V0LnNlZWQoMTQ1NilcblxuIyBQcmVkaWN0b3IgVmFyaWFibGVzXG54MSA8LSBybm9ybSgxMDAwLCBybm9ybSgxLCAwLCA1KSwgcm5vcm0oMSwgMiwgMC4yNSkpXG54MiA8LSBybm9ybSgxMDAwLCBybm9ybSgxLCAwLCA1KSwgcm5vcm0oMSwgMiwgMC4yNSkpXG54MyA8LSBybm9ybSgxMDAwLCBybm9ybSgxLCAwLCA1KSwgcm5vcm0oMSwgMiwgMC4yNSkpXG54NCA8LSBybm9ybSgxMDAwLCBybm9ybSgxLCAwLCA1KSwgcm5vcm0oMSwgMiwgMC4yNSkpXG54NSA8LSBybm9ybSgxMDAwLCBybm9ybSgxLCAwLCA1KSwgcm5vcm0oMSwgMiwgMC4yNSkpXG54NiA8LSBybm9ybSgxMDAwLCBybm9ybSgxLCAwLCA1KSwgcm5vcm0oMSwgMiwgMC4yNSkpXG54NyA8LSBybm9ybSgxMDAwLCBybm9ybSgxLCAwLCA1KSwgcm5vcm0oMSwgMiwgMC4yNSkpXG54OCA8LSBybm9ybSgxMDAwLCBybm9ybSgxLCAwLCA1KSwgcm5vcm0oMSwgMiwgMC4yNSkpXG54OSA8LSBybm9ybSgxMDAwLCBybm9ybSgxLCAwLCA1KSwgcm5vcm0oMSwgMiwgMC4yNSkpXG54MTAgPC0gcm5vcm0oMTAwMCwgcm5vcm0oMSwgMCwgNSksIHJub3JtKDEsIDIsIDAuMjUpKVxuXG4jIFByZWRpY3RlZCBWYXJpYWJsZXNcbnkxIDwtIHgxICsgeDIgKyB4NiArIHg3IC0geDUgLSB4OFxuaGlzdCh5MSlcbnBsb3QoeTEpXG5cbnkyIDwtIHgxXjIgKyAwLjUqeDVeMiArIDIqeDZeMiAtIDEuNSp4OV4yIC0gMip4MTBeMlxuaGlzdCh5MilcbnBsb3QoeTIpXG5cbnkzIDwtICgwLjUqeDFeMyAtIDAuMjUqeDFeMiArIC4yKngxIC0gMS41KngyXjMgKyAxLjIqeDJeMiAtIDEuNSp4MiArIHg3XjMgLSB4N14yICsgMC4zNSp4NyArIDE1KVxuaGlzdCh5MylcbnBsb3QoeTMpXG5cbiMgRGF0YSBGcmFtZVxuZGYgPC0gZGF0YS5mcmFtZSh4MSwgeDIsIHgzLCB4NCwgeDUsIHg2LCB4NywgeDgsIHg5LCB4MTAsIHkxLCB5MiwgeTMpXG5kZiA8LSBkZiAlPiUgbXV0YXRlKGlkID0gcm93X251bWJlcigpKVxuXG5yb3VuZChhcy5tYXRyaXgoY29yKGRmWzE6MTBdKSksIDQpXG5cbnJvdW5kKGNvcihkZlsxOjEwXSksIDQpXG5cblxuIyBUZXN0IGFuZCBUcmFpbmluZyBTZXRzXG50cmFpbiA8LSBzYW1wbGVfbihkZiwgODAwKVxudGVzdCA8LSBhbnRpX2pvaW4oZGYsIHRyYWluLCBieSA9ICdpZCcpXG5gYGAifQ== -->
+<pre class="r"><code># Packages used:
+library(tidyverse)
+
+# Seed
+set.seed(1456)
+
+# Predictor Variables
+x1 &lt;- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+x2 &lt;- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+x3 &lt;- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+x4 &lt;- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+x5 &lt;- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+x6 &lt;- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+x7 &lt;- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+x8 &lt;- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+x9 &lt;- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+x10 &lt;- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+
+# Predicted Variables
+y1 &lt;- x1 + x2 + x6 + x7 - x5 - x8
+hist(y1)
+plot(y1)
+
+y2 &lt;- x1^2 + 0.5*x5^2 + 2*x6^2 - 1.5*x9^2 - 2*x10^2
+hist(y2)
+plot(y2)
+
+y3 &lt;- (0.5*x1^3 - 0.25*x1^2 + .2*x1 - 1.5*x2^3 + 1.2*x2^2 - 1.5*x2 + x7^3 - x7^2 + 0.35*x7 + 15)
+hist(y3)
+plot(y3)
+
+# Data Frame
+df &lt;- data.frame(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, y1, y2, y3)
+df &lt;- df %&gt;% mutate(id = row_number())
+
+round(as.matrix(cor(df[1:10])), 4)
+
+round(cor(df[1:10]), 4)
+
+
+# Test and Training Sets
+train &lt;- sample_n(df, 800)
+test &lt;- anti_join(df, train, by = &#39;id&#39;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="lasso-models" class="section level1">
-<h1>LASSO Models</h1>
-<div id="linear-predictors" class="section level2">
-<h2>Linear Predictors</h2>
-<p><span class="math inline">\(y_1 = x_1 + x_3 - x_5 + x_6 - x_8 + x_{10}\)</span></p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2V0LnNlZWQoMTQ1Nilcbmxhc3NvY3ZfeTEgPC0gY3YuZ2xtbmV0KHg9YXMubWF0cml4KHN1YnNldCh0cmFpbiwgc2VsZWN0ID0gYyh4MSwgeDIsIHgzLCB4NCwgeDUsIHg2LCB4NywgeDgsIHg5LCB4MTApKSksIHk9YXMubWF0cml4KHN1YnNldCh0cmFpbiwgc2VsZWN0ID0gYyh5MSkpKSwgbmZvbGQgPSA1LCBhbHBoYT0xKVxuXG5wbG90KGxhc3NvY3ZfeTEpXG5cbmxhc3NvX3kxIDwtIGdsbW5ldCh4PWFzLm1hdHJpeChzdWJzZXQodHJhaW4sIHNlbGVjdCA9IGMoeDEsIHgyLCB4MywgeDQsIHg1LCB4NiwgeDcsIHg4LCB4OSwgeDEwKSkpLCB5PWFzLm1hdHJpeChzdWJzZXQodHJhaW4sIHNlbGVjdCA9IGMoeTEpKSksIGxhbWJkYSA9IGxhc3NvY3ZfeTEkbGFtYmRhLjFzZSwgYWxwaGE9MSlcblxuY29lZmZpY2llbnRzKGxhc3NvX3kxKVxuXG5sYXNzb195MV9wcmVkIDwtIHByZWRpY3QobGFzc29feTEsIHMgPSBsYXNzb2N2X3kxJGxhbWJkYS4xc2UsIGFzLm1hdHJpeChzdWJzZXQodGVzdCwgc2VsZWN0ID0gYyh4MSwgeDIsIHgzLCB4NCwgeDUsIHg2LCB4NywgeDgsIHg5LCB4MTApKSkpXG5cbmxhc3NvX3kxX2Vycm9yIDwtIG1lYW4oKHRlc3QkeTEgLSBsYXNzb195MV9wcmVkKV4yKVxubGFzc29feTFfZXJyb3JcbmBgYCJ9 -->
-<pre class="r"><code>set.seed(1456)
-lassocv_y1 &lt;- cv.glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y1))), nfold = 5, alpha=1)
-
-plot(lassocv_y1)
-
-lasso_y1 &lt;- glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y1))), lambda = lassocv_y1$lambda.1se, alpha=1)
-
-coefficients(lasso_y1)
-
-lasso_y1_pred &lt;- predict(lasso_y1, s = lassocv_y1$lambda.1se, as.matrix(subset(test, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))))
-
-lasso_y1_error &lt;- mean((test$y1 - lasso_y1_pred)^2)
-lasso_y1_error</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="quadratic-predictors" class="section level2">
-<h2>Quadratic Predictors</h2>
-<p><span class="math inline">\(y_2 = x_1^2 + 0.5x_5^2 + 2x_6^2 - 1.5x_9^2 - 2x_{10}^2\)</span></p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2V0LnNlZWQoMTQ1Nilcbmxhc3NvY3ZfeTIgPC0gY3YuZ2xtbmV0KHg9YXMubWF0cml4KHN1YnNldCh0cmFpbiwgc2VsZWN0ID0gYyh4MSwgeDIsIHgzLCB4NCwgeDUsIHg2LCB4NywgeDgsIHg5LCB4MTApKSksIHk9YXMubWF0cml4KHN1YnNldCh0cmFpbiwgc2VsZWN0ID0gYyh5MikpKSwgbmZvbGQgPSA1LCBhbHBoYT0xKVxuXG5wbG90KGxhc3NvY3ZfeTIpXG5cbmxhc3NvX3kyIDwtIGdsbW5ldCh4PWFzLm1hdHJpeChzdWJzZXQodHJhaW4sIHNlbGVjdCA9IGMoeDEsIHgyLCB4MywgeDQsIHg1LCB4NiwgeDcsIHg4LCB4OSwgeDEwKSkpLCB5PWFzLm1hdHJpeChzdWJzZXQodHJhaW4sIHNlbGVjdCA9IGMoeTIpKSksIGxhbWJkYSA9IGxhc3NvY3ZfeTIkbGFtYmRhLjFzZSwgYWxwaGE9MSlcblxuY29lZmZpY2llbnRzKGxhc3NvX3kyKVxuXG5sYXNzb195Ml9wcmVkIDwtIHByZWRpY3QobGFzc29feTIsIHMgPSBsYXNzb2N2X3kyJGxhbWJkYS4xc2UsIGFzLm1hdHJpeChzdWJzZXQodGVzdCwgc2VsZWN0ID0gYyh4MSwgeDIsIHgzLCB4NCwgeDUsIHg2LCB4NywgeDgsIHg5LCB4MTApKSkpXG5cbmxhc3NvX3kyX2Vycm9yIDwtIG1lYW4oKHRlc3QkeTIgLSBsYXNzb195Ml9wcmVkKV4yKVxubGFzc29feTJfZXJyb3JcbmBgYCJ9 -->
-<pre class="r"><code>set.seed(1456)
-lassocv_y2 &lt;- cv.glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y2))), nfold = 5, alpha=1)
-
-plot(lassocv_y2)
-
-lasso_y2 &lt;- glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y2))), lambda = lassocv_y2$lambda.1se, alpha=1)
-
-coefficients(lasso_y2)
-
-lasso_y2_pred &lt;- predict(lasso_y2, s = lassocv_y2$lambda.1se, as.matrix(subset(test, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))))
-
-lasso_y2_error &lt;- mean((test$y2 - lasso_y2_pred)^2)
-lasso_y2_error</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="cubic-predictors" class="section level2">
-<h2>Cubic Predictors</h2>
-<p><span class="math inline">\(y_3 = (0.5x_1^3 - 0.25x_1^2 + 0.2x_1) + (-1.5x_2^3 + 1.2x_2^2 - 1.5x_2) + (x_7^3 - x_7^2 + 0.35x_7) + 15\)</span></p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2V0LnNlZWQoMTQ1Nilcbmxhc3NvY3ZfeTMgPC0gY3YuZ2xtbmV0KHg9YXMubWF0cml4KHN1YnNldCh0cmFpbiwgc2VsZWN0ID0gYyh4MSwgeDIsIHgzLCB4NCwgeDUsIHg2LCB4NywgeDgsIHg5LCB4MTApKSksIHk9YXMubWF0cml4KHN1YnNldCh0cmFpbiwgc2VsZWN0ID0gYyh5MykpKSwgbmZvbGQgPSA1LCBhbHBoYT0xKVxuXG5wbG90KGxhc3NvY3ZfeTMpXG5cbmxhc3NvX3kzIDwtIGdsbW5ldCh4PWFzLm1hdHJpeChzdWJzZXQodHJhaW4sIHNlbGVjdCA9IGMoeDEsIHgyLCB4MywgeDQsIHg1LCB4NiwgeDcsIHg4LCB4OSwgeDEwKSkpLCB5PWFzLm1hdHJpeChzdWJzZXQodHJhaW4sIHNlbGVjdCA9IGMoeTMpKSksIGxhbWJkYSA9IGxhc3NvY3ZfeTMkbGFtYmRhLjFzZSwgYWxwaGE9MSlcblxuY29lZmZpY2llbnRzKGxhc3NvX3kzKVxuXG5sYXNzb195M19wcmVkIDwtIHByZWRpY3QobGFzc29feTMsIHMgPSBsYXNzb2N2X3kzJGxhbWJkYS4xc2UsIGFzLm1hdHJpeChzdWJzZXQodGVzdCwgc2VsZWN0ID0gYyh4MSwgeDIsIHgzLCB4NCwgeDUsIHg2LCB4NywgeDgsIHg5LCB4MTApKSkpXG5cbmxhc3NvX3kzX2Vycm9yIDwtIG1lYW4oKHRlc3QkeTMgLSBsYXNzb195M19wcmVkKV4yKVxubGFzc29feTNfZXJyb3JcbmBgYCJ9 -->
-<pre class="r"><code>set.seed(1456)
-lassocv_y3 &lt;- cv.glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y3))), nfold = 5, alpha=1)
-
-plot(lassocv_y3)
-
-lasso_y3 &lt;- glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y3))), lambda = lassocv_y3$lambda.1se, alpha=1)
-
-coefficients(lasso_y3)
-
-lasso_y3_pred &lt;- predict(lasso_y3, s = lassocv_y3$lambda.1se, as.matrix(subset(test, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))))
-
-lasso_y3_error &lt;- mean((test$y3 - lasso_y3_pred)^2)
-lasso_y3_error</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-</div>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIFBhY2thZ2VzIHVzZWQ6DQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KbGlicmFyeShnbG1uZXQpDQpgYGANCg0KIyBMQVNTTyBNb2RlbHMNCiMjIExpbmVhciBQcmVkaWN0b3JzDQokeV8xID0geF8xICsgeF8zIC0geF81ICsgeF82IC0geF84ICsgeF97MTB9JA0KYGBge3J9DQpzZXQuc2VlZCgxNDU2KQ0KbGFzc29jdl95MSA8LSBjdi5nbG1uZXQoeD1hcy5tYXRyaXgoc3Vic2V0KHRyYWluLCBzZWxlY3QgPSBjKHgxLCB4MiwgeDMsIHg0LCB4NSwgeDYsIHg3LCB4OCwgeDksIHgxMCkpKSwgeT1hcy5tYXRyaXgoc3Vic2V0KHRyYWluLCBzZWxlY3QgPSBjKHkxKSkpLCBuZm9sZCA9IDUsIGFscGhhPTEpDQoNCnBsb3QobGFzc29jdl95MSkNCg0KbGFzc29feTEgPC0gZ2xtbmV0KHg9YXMubWF0cml4KHN1YnNldCh0cmFpbiwgc2VsZWN0ID0gYyh4MSwgeDIsIHgzLCB4NCwgeDUsIHg2LCB4NywgeDgsIHg5LCB4MTApKSksIHk9YXMubWF0cml4KHN1YnNldCh0cmFpbiwgc2VsZWN0ID0gYyh5MSkpKSwgbGFtYmRhID0gbGFzc29jdl95MSRsYW1iZGEuMXNlLCBhbHBoYT0xKQ0KDQpjb2VmZmljaWVudHMobGFzc29feTEpDQoNCmxhc3NvX3kxX3ByZWQgPC0gcHJlZGljdChsYXNzb195MSwgcyA9IGxhc3NvY3ZfeTEkbGFtYmRhLjFzZSwgYXMubWF0cml4KHN1YnNldCh0ZXN0LCBzZWxlY3QgPSBjKHgxLCB4MiwgeDMsIHg0LCB4NSwgeDYsIHg3LCB4OCwgeDksIHgxMCkpKSkNCg0KbGFzc29feTFfZXJyb3IgPC0gbWVhbigodGVzdCR5MSAtIGxhc3NvX3kxX3ByZWQpXjIpDQpsYXNzb195MV9lcnJvcg0KYGBgDQoNCiMjIFF1YWRyYXRpYyBQcmVkaWN0b3JzDQokeV8yID0geF8xXjIgKyAwLjV4XzVeMiArIDJ4XzZeMiAtIDEuNXhfOV4yIC0gMnhfezEwfV4yJA0KYGBge3J9DQpzZXQuc2VlZCgxNDU2KQ0KbGFzc29jdl95MiA8LSBjdi5nbG1uZXQoeD1hcy5tYXRyaXgoc3Vic2V0KHRyYWluLCBzZWxlY3QgPSBjKHgxLCB4MiwgeDMsIHg0LCB4NSwgeDYsIHg3LCB4OCwgeDksIHgxMCkpKSwgeT1hcy5tYXRyaXgoc3Vic2V0KHRyYWluLCBzZWxlY3QgPSBjKHkyKSkpLCBuZm9sZCA9IDUsIGFscGhhPTEpDQoNCnBsb3QobGFzc29jdl95MikNCg0KbGFzc29feTIgPC0gZ2xtbmV0KHg9YXMubWF0cml4KHN1YnNldCh0cmFpbiwgc2VsZWN0ID0gYyh4MSwgeDIsIHgzLCB4NCwgeDUsIHg2LCB4NywgeDgsIHg5LCB4MTApKSksIHk9YXMubWF0cml4KHN1YnNldCh0cmFpbiwgc2VsZWN0ID0gYyh5MikpKSwgbGFtYmRhID0gbGFzc29jdl95MiRsYW1iZGEuMXNlLCBhbHBoYT0xKQ0KDQpjb2VmZmljaWVudHMobGFzc29feTIpDQoNCmxhc3NvX3kyX3ByZWQgPC0gcHJlZGljdChsYXNzb195MiwgcyA9IGxhc3NvY3ZfeTIkbGFtYmRhLjFzZSwgYXMubWF0cml4KHN1YnNldCh0ZXN0LCBzZWxlY3QgPSBjKHgxLCB4MiwgeDMsIHg0LCB4NSwgeDYsIHg3LCB4OCwgeDksIHgxMCkpKSkNCg0KbGFzc29feTJfZXJyb3IgPC0gbWVhbigodGVzdCR5MiAtIGxhc3NvX3kyX3ByZWQpXjIpDQpsYXNzb195Ml9lcnJvcg0KYGBgDQoNCiMjIEN1YmljIFByZWRpY3RvcnMNCiR5XzMgPSAoMC41eF8xXjMgLSAwLjI1eF8xXjIgKyAwLjJ4XzEpICsgKC0xLjV4XzJeMyArIDEuMnhfMl4yIC0gMS41eF8yKSArICh4XzdeMyAtIHhfN14yICsgMC4zNXhfNykgKyAxNSQNCmBgYHtyfQ0Kc2V0LnNlZWQoMTQ1NikNCmxhc3NvY3ZfeTMgPC0gY3YuZ2xtbmV0KHg9YXMubWF0cml4KHN1YnNldCh0cmFpbiwgc2VsZWN0ID0gYyh4MSwgeDIsIHgzLCB4NCwgeDUsIHg2LCB4NywgeDgsIHg5LCB4MTApKSksIHk9YXMubWF0cml4KHN1YnNldCh0cmFpbiwgc2VsZWN0ID0gYyh5MykpKSwgbmZvbGQgPSA1LCBhbHBoYT0xKQ0KDQpwbG90KGxhc3NvY3ZfeTMpDQoNCmxhc3NvX3kzIDwtIGdsbW5ldCh4PWFzLm1hdHJpeChzdWJzZXQodHJhaW4sIHNlbGVjdCA9IGMoeDEsIHgyLCB4MywgeDQsIHg1LCB4NiwgeDcsIHg4LCB4OSwgeDEwKSkpLCB5PWFzLm1hdHJpeChzdWJzZXQodHJhaW4sIHNlbGVjdCA9IGMoeTMpKSksIGxhbWJkYSA9IGxhc3NvY3ZfeTMkbGFtYmRhLjFzZSwgYWxwaGE9MSkNCg0KY29lZmZpY2llbnRzKGxhc3NvX3kzKQ0KDQpsYXNzb195M19wcmVkIDwtIHByZWRpY3QobGFzc29feTMsIHMgPSBsYXNzb2N2X3kzJGxhbWJkYS4xc2UsIGFzLm1hdHJpeChzdWJzZXQodGVzdCwgc2VsZWN0ID0gYyh4MSwgeDIsIHgzLCB4NCwgeDUsIHg2LCB4NywgeDgsIHg5LCB4MTApKSkpDQoNCmxhc3NvX3kzX2Vycm9yIDwtIG1lYW4oKHRlc3QkeTMgLSBsYXNzb195M19wcmVkKV4yKQ0KbGFzc29feTNfZXJyb3INCmBgYA0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIFJ1biB0aGlzOg0KYGBge3J9DQojIFBhY2thZ2VzIHVzZWQ6DQpsaWJyYXJ5KHRpZHl2ZXJzZSkNCg0KIyBTZWVkDQpzZXQuc2VlZCgxNDU2KQ0KDQojIFByZWRpY3RvciBWYXJpYWJsZXMNCngxIDwtIHJub3JtKDEwMDAsIHJub3JtKDEsIDAsIDUpLCBybm9ybSgxLCAyLCAwLjI1KSkNCngyIDwtIHJub3JtKDEwMDAsIHJub3JtKDEsIDAsIDUpLCBybm9ybSgxLCAyLCAwLjI1KSkNCngzIDwtIHJub3JtKDEwMDAsIHJub3JtKDEsIDAsIDUpLCBybm9ybSgxLCAyLCAwLjI1KSkNCng0IDwtIHJub3JtKDEwMDAsIHJub3JtKDEsIDAsIDUpLCBybm9ybSgxLCAyLCAwLjI1KSkNCng1IDwtIHJub3JtKDEwMDAsIHJub3JtKDEsIDAsIDUpLCBybm9ybSgxLCAyLCAwLjI1KSkNCng2IDwtIHJub3JtKDEwMDAsIHJub3JtKDEsIDAsIDUpLCBybm9ybSgxLCAyLCAwLjI1KSkNCng3IDwtIHJub3JtKDEwMDAsIHJub3JtKDEsIDAsIDUpLCBybm9ybSgxLCAyLCAwLjI1KSkNCng4IDwtIHJub3JtKDEwMDAsIHJub3JtKDEsIDAsIDUpLCBybm9ybSgxLCAyLCAwLjI1KSkNCng5IDwtIHJub3JtKDEwMDAsIHJub3JtKDEsIDAsIDUpLCBybm9ybSgxLCAyLCAwLjI1KSkNCngxMCA8LSBybm9ybSgxMDAwLCBybm9ybSgxLCAwLCA1KSwgcm5vcm0oMSwgMiwgMC4yNSkpDQoNCiMgUHJlZGljdGVkIFZhcmlhYmxlcw0KeTEgPC0geDEgKyB4MiArIHg2ICsgeDcgLSB4NSAtIHg4DQpoaXN0KHkxKQ0KcGxvdCh5MSkNCg0KeTIgPC0geDFeMiArIDAuNSp4NV4yICsgMip4Nl4yIC0gMS41Kng5XjIgLSAyKngxMF4yDQpoaXN0KHkyKQ0KcGxvdCh5MikNCg0KeTMgPC0gKDAuNSp4MV4zIC0gMC4yNSp4MV4yICsgLjIqeDEgLSAxLjUqeDJeMyArIDEuMip4Ml4yIC0gMS41KngyICsgeDdeMyAtIHg3XjIgKyAwLjM1Kng3ICsgMTUpDQpoaXN0KHkzKQ0KcGxvdCh5MykNCg0KIyBEYXRhIEZyYW1lDQpkZiA8LSBkYXRhLmZyYW1lKHgxLCB4MiwgeDMsIHg0LCB4NSwgeDYsIHg3LCB4OCwgeDksIHgxMCwgeTEsIHkyLCB5MykNCmRmIDwtIGRmICU+JSBtdXRhdGUoaWQgPSByb3dfbnVtYmVyKCkpDQoNCnJvdW5kKGFzLm1hdHJpeChjb3IoZGZbMToxMF0pKSwgNCkNCg0Kcm91bmQoY29yKGRmWzE6MTBdKSwgNCkNCg0KDQojIFRlc3QgYW5kIFRyYWluaW5nIFNldHMNCnRyYWluIDwtIHNhbXBsZV9uKGRmLCA4MDApDQp0ZXN0IDwtIGFudGlfam9pbihkZiwgdHJhaW4sIGJ5ID0gJ2lkJykNCmBgYA==</div>
 
 
 
@@ -1929,7 +1896,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("lasso_models.Rmd");
+  window.initializeSourceEmbed("data_fab.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>

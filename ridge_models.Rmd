@@ -1,0 +1,65 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Packages used:
+```{r}
+library(tidyverse)
+library(glmnet)
+```
+
+# Ridge Models
+## Linear Predictors
+$y_1 = x_1 + x_3 - x_5 + x_6 - x_8 + x_{10}$
+```{r}
+set.seed(1456)
+ridgecv_y1 <- cv.glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y1))), nfold = 5, alpha=0)
+
+plot(ridgecv_y1)
+
+ridge_y1 <- glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y1))), lambda = ridgecv_y1$lambda.1se, alpha=0)
+
+coefficients(ridge_y1)
+
+ridge_y1_pred <- predict(ridge_y1, s = ridgecv_y1$lambda.1se, as.matrix(subset(test, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))))
+
+ridge_y1_error <- mean((test$y1 - ridge_y1_pred)^2)
+ridge_y1_error
+```
+
+## Quadratic Predictors
+$y_2 = x_1^2 + 0.5x_5^2 + 2x_6^2 - 1.5x_9^2 - 2x_{10}^2$
+```{r}
+set.seed(1456)
+ridgecv_y2 <- cv.glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y2))), nfold = 5, alpha=0)
+
+plot(ridgecv_y2)
+
+ridge_y2 <- glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y2))), lambda = ridgecv_y2$lambda.1se, alpha=0)
+
+coefficients(ridge_y2)
+
+ridge_y2_pred <- predict(ridge_y2, s = ridgecv_y2$lambda.1se, as.matrix(subset(test, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))))
+
+ridge_y2_error <- mean((test$y2 - ridge_y2_pred)^2)
+ridge_y2_error
+```
+
+## Cubic Predictors
+$y_3 = (0.5x_1^3 - 0.25x_1^2 + 0.2x_1) + (-1.5x_2^3 + 1.2x_2^2 - 1.5x_2) + (x_7^3 - x_7^2 + 0.35x_7) + 15$
+```{r}
+set.seed(1456)
+ridgecv_y3 <- cv.glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y3))), nfold = 5, alpha=0)
+
+plot(ridgecv_y3)
+
+ridge_y3 <- glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y3))), lambda = ridgecv_y3$lambda.1se, alpha=0)
+
+coefficients(ridge_y3)
+
+ridge_y3_pred <- predict(ridge_y3, s = ridgecv_y3$lambda.1se, as.matrix(subset(test, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))))
+
+ridge_y3_error <- mean((test$y3 - ridge_y3_pred)^2)
+ridge_y3_error
+```

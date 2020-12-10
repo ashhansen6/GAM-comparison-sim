@@ -48,7 +48,4 @@ round(cor(df[1:10]), 4)
 # Test and Training Sets
 train <- sample_n(df, 800)
 test <- anti_join(df, train, by = 'id')
-
-glimpse(test)
-glimpse(train)
 ```

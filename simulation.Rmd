@@ -1,0 +1,154 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Packages used:
+```{r}
+library(tidyverse)
+library(glmnet)
+library(gam)
+```
+
+# Simulation
+
+```{r}
+# Initializations
+n <- 1000 # (One Thousand Repetitions)
+errors_ridge_y1 <- rep(-1, n) # Using -1 as placeholder, can check if worked
+errors_ridge_y2 <- rep(-1, n)
+errors_ridge_y3 <- rep(-1, n)
+
+errors_lasso_y1 <- rep(-1, n)
+errors_lasso_y2 <- rep(-1, n)
+errors_lasso_y3 <- rep(-1, n)
+
+errors_gam_y1 <- rep(-1, n)
+errors_gam_y2 <- rep(-1, n)
+errors_gam_y3 <- rep(-1, n)
+
+errors <- data.frame(errors_ridge_y1, errors_ridge_y2, errors_ridge_y3, errors_lasso_y1, errors_lasso_y2, errors_lasso_y3, errors_gam_y1, errors_gam_y2, errors_gam_y3)
+
+# Progress Bar (Ignore)
+prog <- winProgressBar(title = "Progress", min = 0, max = n, width = 300)
+
+for (r in 1:n){
+  
+  
+  ###############
+  # Making Data #
+  ###############
+  
+  # Predictor Variables
+  x1 <- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+  x2 <- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+  x3 <- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+  x4 <- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+  x5 <- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+  x6 <- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+  x7 <- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+  x8 <- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+  x9 <- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+  x10 <- rnorm(1000, rnorm(1, 0, 5), rnorm(1, 2, 0.25))
+  
+  # Predicted Variables
+  y1 <- x1 + x2 + x6 + x7 - x5 - x8
+  y2 <- x1^2 + 0.5*x5^2 + 2*x6^2 - 1.5*x9^2 - 2*x10^2
+  y3 <- (0.5*x1^3 - 0.25*x1^2 + .2*x1 - 1.5*x2^3 + 1.2*x2^2 - 1.5*x2 + x7^3 - x7^2 + 0.35*x7 + 15)
+  
+  # Data Frame
+  df <- data.frame(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, y1, y2, y3)
+  df <- df %>% mutate(id = row_number())
+  
+  # Test and Training Sets
+  train <- sample_n(df, 800)
+  test <- anti_join(df, train, by = 'id')
+  
+  ###########################
+  # Ridge Regression Models #
+  ###########################
+  ridgecv_y1 <- cv.glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y1))), nfold = 5, alpha=0)
+  ridge_y1 <- glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y1))), lambda = ridgecv_y1$lambda.1se, alpha=0)
+  ridge_y1_pred <- predict(ridge_y1, s = ridgecv_y1$lambda.1se, as.matrix(subset(test, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))))
+  errors$errors_ridge_y1[r] <- mean((test$y1 - ridge_y1_pred)^2)
+  
+  ridgecv_y2 <- cv.glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y2))), nfold = 5, alpha=0)
+  ridge_y2 <- glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y2))), lambda = ridgecv_y2$lambda.1se, alpha=0)
+  ridge_y2_pred <- predict(ridge_y2, s = ridgecv_y2$lambda.1se, as.matrix(subset(test, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))))
+  errors$errors_ridge_y2[r] <- mean((test$y2 - ridge_y2_pred)^2)
+  
+  ridgecv_y3 <- cv.glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y3))), nfold = 5, alpha=0)
+  ridge_y3 <- glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y3))), lambda = ridgecv_y3$lambda.1se, alpha=0)
+  ridge_y3_pred <- predict(ridge_y3, s = ridgecv_y3$lambda.1se, as.matrix(subset(test, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))))
+  errors$errors_ridge_y3[r] <- mean((test$y3 - ridge_y3_pred)^2)
+  
+  ################
+  # LASSO Models #
+  ################
+  lassocv_y1 <- cv.glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y1))), nfold = 5, alpha=1)
+  lasso_y1 <- glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y1))), lambda = lassocv_y1$lambda.1se, alpha=1)
+  lasso_y1_pred <- predict(lasso_y1, s = lassocv_y1$lambda.1se, as.matrix(subset(test, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))))
+  errors$errors_lasso_y1[r] <- mean((test$y1 - lasso_y1_pred)^2)
+  
+  lassocv_y2 <- cv.glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y2))), nfold = 5, alpha=1)
+  lasso_y2 <- glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y2))), lambda = lassocv_y2$lambda.1se, alpha=1)
+  lasso_y2_pred <- predict(lasso_y2, s = lassocv_y2$lambda.1se, as.matrix(subset(test, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))))
+  errors$errors_lasso_y2[r] <- mean((test$y2 - lasso_y2_pred)^2)
+  
+  lassocv_y3 <- cv.glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y3))), nfold = 5, alpha=1)
+  lasso_y3 <- glmnet(x=as.matrix(subset(train, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))), y=as.matrix(subset(train, select = c(y3))), lambda = lassocv_y3$lambda.1se, alpha=1)
+  lasso_y3_pred <- predict(lasso_y3, s = lassocv_y3$lambda.1se, as.matrix(subset(test, select = c(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10))))
+  errors$errors_lasso_y3[r] <- mean((test$y3 - lasso_y3_pred)^2)
+  
+  ########
+  # GAMs #
+  ########
+  gam_y1 <- gam(y1 ~ x1 + x2 - x5 + x6 + x7 - x8, data = train)
+  gam_pred_y1 <- predict(gam_y1, test)
+  errors$errors_gam_y1[r] <- mean((gam_pred_y1 - test$y1)^2)
+  
+  gam_y2 <- gam(y2 ~ s(x1) + poly(x6, 2) + s(x9) + poly(x10, 2), data = train)
+  gam_pred_y2 <- predict(gam_y2, test)
+  errors$errors_gam_y2[r] <- mean((test$y2 - gam_pred_y2)^2)
+  
+  gam_y3 <- gam(y3 ~ poly(x1, 2) + poly(x2, 2) + poly(x7, 2), data = train)
+  gam_pred_y3 <- predict(gam_y3, test)
+  errors$errors_gam_y3[r] <- mean((test$y3 - gam_pred_y3)^2)
+  
+  setWinProgressBar(prog, r, title = paste(round(r/n*100, 2), "% Complete"))
+}
+close(prog)
+
+colnames(errors) <- c("ridge.y1", "ridge.y2", "ridge.y3", "lasso.y1", "lasso.y2", "lasso.y3", "gam.y1", "gam.y2", "gam.y3")
+summary(errors)
+
+ggplot(errors) +
+  geom_histogram(aes(x=ridge.y1), fill = "pink", col = "black") +
+  ggtitle("Ridge Regression Error (Y1)")
+ggplot(errors) +
+  geom_histogram(aes(x=lasso.y1), fill = "lightgreen", col = "black") +
+  ggtitle("LASSO Error (Y1)")
+ggplot(errors) +
+  geom_histogram(aes(x=gam.y1), fill = "cornflowerblue", col = "black") +
+  ggtitle("GAM Error (Y1)")
+
+ggplot(errors) +
+  geom_histogram(aes(x=ridge.y2), fill = "pink", col = "black") +
+  ggtitle("Ridge Regression Error (Y2)")
+ggplot(errors) +
+  geom_histogram(aes(x=lasso.y2), fill = "lightgreen", col = "black") +
+  ggtitle("LASSO Error (Y2)")
+ggplot(errors) +
+  geom_histogram(aes(x=gam.y2), fill = "cornflowerblue", col = "black") +
+  ggtitle("GAM Error (Y2)")
+
+ggplot(errors) +
+  geom_histogram(aes(x=ridge.y3), fill = "pink", col = "black") +
+  ggtitle("Ridge Regression Error (Y3)")
+ggplot(errors) +
+  geom_histogram(aes(x=lasso.y3), fill = "lightgreen", col = "black") +
+  ggtitle("LASSO Error (Y3)")
+ggplot(errors) +
+  geom_histogram(aes(x=gam.y3), fill = "cornflowerblue", col = "black") +
+  ggtitle("GAM Error (Y3)")
+```

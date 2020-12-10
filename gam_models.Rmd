@@ -1,0 +1,54 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Packages used:
+```{r}
+library(tidyverse)
+library(gam)
+```
+
+# GAMs
+## Linear Predictors
+$y_1 = x_1 + x_3 - x_5 + x_6 - x_8 + x_{10}$
+```{r}
+set.seed(1458)
+# Fully Linear (GAM used for Y1)
+gam_y1.1 <- gam(y1 ~ x1 + x2 - x5 + x6 + x7 - x8, data = train)
+summary(gam_y1.1)
+gam_pred_y1.1 <- predict(gam_y1.1, test)
+gam_error_y1.1 <- mean((gam_pred_y1.1 - test$y1)^2)
+gam_error_y1.1
+
+# Testing Natural spline on x1
+gam_y1.2 <- gam(y1 ~ ns(x1) + x2 - x5 + x6 + x7 - x8, data = train)
+summary(gam_y1.2)
+gam_pred_y1.2<- predict(gam_y1.2, test)
+gam_error_y1.2 <- mean((gam_pred_y1.2 - test$y1)^2)
+gam_error_y1.2
+```
+
+## Quadratic Predictors
+$y_2 = x_1^2 + 0.5x_5^2 + 2x_6^2 - 1.5x_9^2 - 2x_{10}^2$
+```{r}
+set.seed(1458)
+# GAM used for Y2
+gam_y2 <- gam(y2 ~ s(x1) + poly(x6, 2) + s(x9) + poly(x10, 2), data = train)
+summary(gam_y2)
+gam_pred_y2 <- predict(gam_y2, test)
+gam_error_y2 <- mean((test$y2 - gam_pred_y2)^2)
+gam_error_y2
+```
+
+## Cubic Predictors
+$y_3 = (0.5x_1^3 - 0.25x_1^2 + 0.2x_1) + (-1.5x_2^3 + 1.2x_2^2 - 1.5x_2) + (x_7^3 - x_7^2 + 0.35x_7) + 15$
+```{r}
+set.seed(1458)
+# GAM used for Y3
+gam_y3 <- gam(y3 ~ poly(x1, 2) + poly(x2, 2) + poly(x7, 2), data = train)
+summary(gam_y3)
+gam_pred_y3 <- predict(gam_y3, test)
+gam_error_y3 <- mean((test$y3 - gam_pred_y3)^2)
+gam_error_y3
+```
